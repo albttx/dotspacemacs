@@ -7,12 +7,8 @@ You should not put any user code in there besides modifying the variable
 values.
 
 #+BEGIN_SRC emacs-lisp :exports none
-
 (defun dotspacemacs/init ()
   (setq-default
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp 
 #+END_SRC
 
 ** Editing style

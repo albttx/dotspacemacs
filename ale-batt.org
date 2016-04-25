@@ -340,16 +340,26 @@ If choose is no, Emacs.app SEGFAULT
  (define-key evil-motion-state-map (kbd "<s-backspace>") 'eyebrowse-close-window-config)
 #+END_SRC
 
+*** Wrap
+
+Set no wrap
+Line don't return to line
+#+BEGIN_SRC emacs-lisp
+(add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
+#+END_SRC   
+
 *** Tabulation
+
  SET <TAB> as \t
 
 /!\ Currently working on it !
 
 #+BEGIN_SRC emacs-lisp
- (setq-default indent-tabs-mode t)
- (setq-default tab-width 4)
- (setq indent-line-function 'insert-tab)
- (setq-default c-basic-offset 4)
+(setq-default indent-tabs-mode t)
+(setq-default tab-width 4)
+(setq-default indent-line-function 'insert-tab)
+(setq-default c-basic-offset 4)
+(global-set-key (kbd "TAB") 'self-insert-command);
 #+END_SRC   
 
 #+BEGIN_SRC emacs-lisp :exports none
@@ -438,6 +448,17 @@ or `spacemacs'. (default 'spacemacs)
 *** Git
 #+BEGIN_SRC emacs-lisp 
      git
+#+END_SRC
+*** Ruby on Rails
+
+This layer aims at providing support for the Ruby on Rails framework.
+#+BEGIN_SRC emacs-lisp 
+	ruby-on-rails
+#+END_SRC
+*** html - Web mode
+#+BEGIN_SRC emacs-lisp 
+	html
+	javascript
 #+END_SRC
 *** Still in comment
 #+BEGIN_SRC emacs-lisp 

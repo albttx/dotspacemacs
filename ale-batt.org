@@ -313,6 +313,35 @@ Configuration function for user code.
 #+BEGIN_SRC emacs-lisp :exports none
   (defun dotspacemacs/user-config ()
 #+END_SRC
+*** Packages
+**** Git-gutter
+#+BEGIN_SRC emacs-lisp
+  (global-git-gutter-mode +1)
+  (custom-set-variables
+     '(git-gutter:update-interval 2))
+
+#+END_SRC
+
+**** Go(lang)
+#+BEGIN_SRC emacs-lisp
+(exec-path-from-shell-copy-env "GOPATH")
+(setq gofmt-command "goimports")
+
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
+#+END_SRC
+
+**** Projectile
+
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'projectile-globally-ignored-directories "node_modules")
+#+END_SRC
+
+**** Peep-dired
+
+#+BEGIN_SRC emacs-lisp
+(setq peep-dired-cleanup-eagerly t)
+#+END_SRC
 
 *** Key unset
 Unset key "CMD + p" for refuse printing buffer
@@ -361,11 +390,17 @@ Line don't return to line
 (setq-default indent-line-function 'insert-tab)
 (setq-default c-basic-offset 4)
 (global-set-key (kbd "TAB") 'self-insert-command);
-#+END_SRC   
+#+END_SRC
+
+*** Fixes
+
+#+BEGIN_SRC emacs-lisp
+(require 'tramp)
+#+END_SRC
 
 #+BEGIN_SRC emacs-lisp :exports none
     )
-#+END_SRC   
+#+END_SRC
 
 * LAYER CONFIG
  Configuration Layers declaration.
@@ -411,14 +446,57 @@ or `spacemacs'. (default 'spacemacs)
     '(
 #+END_SRC
 
-*** Emacs-lisp 
+*** Languages
 
-#+BEGIN_SRC emacs-lisp 
+**** Go (lang)
+#+BEGIN_SRC emacs-lisp
+    (go :variables
+        go-tab-width 4
+        gofmt-command "goimports")
+#+END_SRC
+
+**** Lisp
+#+BEGIN_SRC emacs-lisp
     emacs-lisp
 #+END_SRC
 
-*** Colors 
-#+BEGIN_SRC emacs-lisp 
+**** Yaml
+#+BEGIN_SRC emacs-lisp
+    yaml
+#+END_SRC
+
+**** Yaml
+#+BEGIN_SRC emacs-lisp
+    yaml
+#+END_SRC
+
+**** Python
+#+BEGIN_SRC emacs-lisp
+    python
+#+END_SRC
+**** Markdown
+#+BEGIN_SRC emacs-lisp
+    markdown
+#+END_SRC
+**** Docker
+#+BEGIN_SRC emacs-lisp
+    docker
+#+END_SRC
+
+*** Syntax checking
+	
+#+BEGIN_SRC emacs-lisp
+    syntax-checking
+#+END_SRC
+
+*** Autocompletion
+
+#+BEGIN_SRC emacs-lisp
+auto-completion
+#+END_SRC
+
+*** Colors
+#+BEGIN_SRC emacs-lisp
      colors
      (colors :variables colors-enable-nyan-cat-progress-bar t)
 #+END_SRC
@@ -480,14 +558,19 @@ This layer aims at providing support for the Ruby on Rails framework.
  packages then consider to create a layer, you can also put the
  configuration in `dotspacemacs/config'.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
  dotspacemacs-additional-packages '(
-                                      )
+    peep-dired
+    protobuf-mode
+    git-gutter
+    go-autocomplete
+    flycheck-golangci-lint
+ )
 #+END_SRC
 *** Excluded
  A list of packages and/or extensions that will not be install and loaded.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
    dotspacemacs-excluded-packages '()
 #+END_SRC
 

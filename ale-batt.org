@@ -58,13 +58,15 @@ values.
    with 2 themes variants, one dark and one light)
    
 #+BEGIN_SRC emacs-lisp 
-dotspacemacs-themes '(solarized-dark
-                         spacemacs-dark
-                         spacemacs-light
-                         solarized-light
-                         leuven
-                         monokai
-                         zenburn)
+  dotspacemacs-themes '(
+                           deeper-blue
+						   solarized-dark
+						   spacemacs-dark
+						   spacemacs-light
+						   solarized-light
+						   leuven
+						   monokai
+						   zenburn)
 #+END_SRC
    
 ** Colorize cursor
@@ -77,12 +79,11 @@ dotspacemacs-themes '(solarized-dark
    Default font. `powerline-scale' allows to quickly tweak the mode-line
    size to make separators look not too crappy.
 #+BEGIN_SRC emacs-lisp 
-dotspacemacs-default-font '("Source Code Pro"
+dotspacemacs-default-font '("Monaco"
                                :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
-
 #+END_SRC
 
 ** Leader key

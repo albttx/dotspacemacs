@@ -555,6 +555,11 @@ This layer aims at providing support for the Ruby on Rails framework.
 	javascript
 #+END_SRC
 
+*** Restclient
+#+BEGIN_SRC emacs-lisp
+restclient
+#+END_SRC
+
 *** Still in comment
 #+BEGIN_SRC emacs-lisp
      ;; auto-completion

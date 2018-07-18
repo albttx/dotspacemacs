@@ -348,6 +348,12 @@ If choose is no, Emacs.app SEGFAULT
  (global-unset-key (kbd "s-p"))
 #+END_SRC
 
+Solve error: ls does not support --dired; see `dired-use-ls-dired` for more details.
+#+BEGIN_SRC emacs-lisp
+  (when (string= system-type "darwin")
+    (setq dired-use-ls-dired nil))
+#+END_SRC
+
 *** Windows manipulation
 
  TODO: Active windmove by default

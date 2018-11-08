@@ -370,6 +370,7 @@ Solve error: ls does not support --dired; see `dired-use-ls-dired` for more deta
 
 #+BEGIN_SRC emacs-lisp
   (evil-ex-define-cmd "qw" 'kill-buffer-and-window )
+  ;; (evil-ex-define-cmd "qw" (lambda () (spacemacs/new-empty-buffer) (kill-buffer-and-window) ))
   (evil-ex-define-cmd "q[uit]" 'kill-this-buffer )
 #+END_SRC
 
@@ -474,6 +475,11 @@ or `spacemacs'. (default 'spacemacs)
         gofmt-command "goimports")
 #+END_SRC
 
+**** Rust
+#+BEGIN_SRC emacs-lisp
+    (rust)
+#+END_SRC
+
 **** Lisp
 #+BEGIN_SRC emacs-lisp
     emacs-lisp
@@ -493,6 +499,16 @@ or `spacemacs'. (default 'spacemacs)
 #+BEGIN_SRC emacs-lisp
     python
 #+END_SRC
+**** Php
+#+BEGIN_SRC emacs-lisp
+    php
+#+END_SRC
+
+**** Sql
+#+BEGIN_SRC emacs-lisp
+    sql
+#+END_SRC
+
 **** Markdown
 #+BEGIN_SRC emacs-lisp
     markdown
@@ -500,6 +516,11 @@ or `spacemacs'. (default 'spacemacs)
 **** Docker
 #+BEGIN_SRC emacs-lisp
     docker
+#+END_SRC
+
+**** Terraform
+#+BEGIN_SRC emacs-lisp
+    terraform
 #+END_SRC
 
 *** Syntax checking
